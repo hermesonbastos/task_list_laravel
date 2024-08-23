@@ -2,8 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+// calling a view, providing a $name variable
 Route::get('/', function () {
-    return 'Main Page';
+    return view("index", [
+        "name" => "Hermeson",
+    ]);
 });
 
 // redirecting from an old route to a new route
