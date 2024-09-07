@@ -1,8 +1,13 @@
-<div>
-    Olá mundo, eu sou um blade template!
-</div>
+<h1>
+    The list of tasks
+</h1>
 
-{{-- conditional rendering of a $name variable --}}
-@isset($name)
-    <div>O nome do usuário é: {{ $name }}</div>
-@endisset
+@forelse ($tasks as $task)
+    <div>
+        <a class="task-link" href={{ route('tasks.show', ['id' => $task->id]) }}>
+            {{ $task->title }}
+        </a>
+    </div>
+@empty
+    <div>There are no tasks!</div>
+@endforelse
